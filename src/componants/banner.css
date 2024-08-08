@@ -1,0 +1,28 @@
+.text-white {
+  color: black;
+}
+
+.p-3 {
+  padding: 0.75rem; /* Adjust padding as needed */
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.text-center {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .flex {
+    flex-direction: column;
+  }
+
+  .col-1,
+  .col-2,
+  .col-3,
+  .col-4 {
+    width: 100%; /* Makes each column take full width */
+  }
+}
