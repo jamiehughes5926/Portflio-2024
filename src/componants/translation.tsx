@@ -68,7 +68,8 @@ export const translations: Translations = {
     saasBoilerplate: "2. SAASウェブサイトのボイラープレート",
     saasBoilerplateDescription:
       "HTML + CSSを使用してSAAS企業向けのウェブサイトボイラープレートを作成しました。",
-    portfolio: "",
-    portfolioDescription: "",
+    portfolio: "3. ミニマリスティックなポートフォリオ",
+    portfolioDescription:
+      "アーティストのためのポートフォリオを作成しました（画像と詳細は変更されています）。",
   },
 };
