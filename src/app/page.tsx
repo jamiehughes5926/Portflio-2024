@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import "../app/globals.css";
 import ThreeScene from "@/componants/threescene";
 import dynamic from "next/dynamic";
@@ -12,6 +13,7 @@ import {
   handleHomeClick,
   handleInfoClick,
   handleProjectsClick,
+  handleDesignClick,
 } from "@/componants/clickHandler";
 import JamieLLMProject from "@/componants/projects/JamieLLM";
 import KonnichiwaAppProject from "@/componants/projects/KonnichiwaApp";
@@ -40,6 +42,7 @@ function HomeContent() {
   const slideInDivRef4 = useRef<HTMLDivElement>(null);
   const imagePlaceholder1Ref = useRef<HTMLDivElement>(null);
   const imagePlaceholder2Ref = useRef<HTMLDivElement>(null);
+  const imagePlaceholder3Ref = useRef<HTMLDivElement>(null);
   const [dividerOpacity, setDividerOpacity] = useState(0);
 
   useEffect(() => {
@@ -59,6 +62,7 @@ function HomeContent() {
         slideInDivRef4,
         imagePlaceholder1Ref,
         imagePlaceholder2Ref,
+        imagePlaceholder3Ref,
         setDividerOpacity
       );
     }
@@ -79,7 +83,7 @@ function HomeContent() {
         <>
           <div
             ref={topBarRef}
-            className="w-full bg-gray-800 fixed text-white p-3 text-center font-bold topbar top-0 z-50 "
+            className="w-full bg-gray-800 fixed text-white p-3 text-center font-bold topbar top-0 z-50"
           >
             <div className="flex justify-between w-full h-full">
               <div
@@ -121,7 +125,10 @@ function HomeContent() {
                   />
                 )}
               </div>
-              <div className="flex-1 text-center topbar">
+              <div
+                className="flex-1 text-center border-r border-black cursor-pointer topbar"
+                onClick={handleDesignClick}
+              >
                 {isMounted && (
                   <RandomReveal
                     isPlaying
@@ -131,6 +138,26 @@ function HomeContent() {
                   />
                 )}
               </div>
+              <Link
+                href="https://github.com/jamiehughes5926"
+                passHref
+                legacyBehavior
+              >
+                <a
+                  className="flex-1 text-center cursor-pointer topbar"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {isMounted && (
+                    <RandomReveal
+                      isPlaying
+                      duration={7}
+                      revealDuration={0.5}
+                      characters="GITHUB"
+                    />
+                  )}
+                </a>
+              </Link>
             </div>
           </div>
           <div
@@ -286,11 +313,11 @@ function HomeContent() {
               <div className="w-1/2 h-full overflow-hidden">
                 <div
                   ref={imagePlaceholder1Ref}
-                  className="w-1/2 h-full design-1 flex items-center justify-center absolute"
+                  className="w-1/2 h-full design-1 flex flex-col items-center justify-center absolute"
                 >
                   <div className="w-3/4 h-3/4 flex items-center justify-center">
                     <video
-                      className="w-full  object- z-50 video-1"
+                      className="w-full object-cover z-50 video-1"
                       autoPlay
                       loop
                       muted
@@ -300,15 +327,43 @@ function HomeContent() {
                       Your browser does not support the video tag.
                     </video>
                   </div>
+                  <div className="mt-4  flex space-x-4">
+                    <Link
+                      href="https://agency-ready-2g6c.vercel.app/"
+                      passHref
+                      legacyBehavior
+                    >
+                      <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="web-link px-4 py-2 "
+                      >
+                        LINK
+                      </a>
+                    </Link>
+                    <Link
+                      href="https://github.com/jamiehughes5926/agency-ready"
+                      passHref
+                      legacyBehavior
+                    >
+                      <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="github-link px-4 py-2 "
+                      >
+                        GITHUB
+                      </a>
+                    </Link>
+                  </div>
                 </div>
                 <div
                   ref={imagePlaceholder2Ref}
-                  className="w-1/2 h-full design-2 flex items-center justify-center absolute"
+                  className="w-1/2 h-full design-2 flex flex-col items-center justify-center absolute"
                   style={{ transform: "translateY(100%)" }}
                 >
                   <div className="p-10 flex items-center justify-center">
                     <video
-                      className="w-full h-full object- z-50 video-2"
+                      className="w-full h-full object-cover z-50 video-2"
                       autoPlay
                       loop
                       muted
@@ -316,7 +371,81 @@ function HomeContent() {
                     >
                       <source src="/saas.mp4" type="video/mp4" />
                       Your browser does not support the video tag.
-                    </video>{" "}
+                    </video>
+                  </div>
+                  <div className="mt-4 flex space-x-4">
+                    <Link
+                      href="https://main--famous-babka-ac679f.netlify.app/"
+                      passHref
+                      legacyBehavior
+                    >
+                      <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className=" px-4 py-2 web-link"
+                      >
+                        LINK
+                      </a>
+                    </Link>
+                    <Link
+                      href="https://github.com/jamiehughes5926/SAAS-Remake"
+                      passHref
+                      legacyBehavior
+                    >
+                      <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="github-link px-4 py-2 "
+                      >
+                        GITHUB
+                      </a>
+                    </Link>
+                  </div>
+                </div>
+                <div
+                  ref={imagePlaceholder3Ref}
+                  className="w-1/2 h-full design-3 flex flex-col items-center justify-center absolute"
+                  style={{ transform: "translateY(100%)" }}
+                >
+                  <div className="p-10 flex items-center justify-center">
+                    <video
+                      className="w-full h-full object-cover z-50 video-3"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                    >
+                      <source src="/min-Port.mp4" type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                  <div className="mt-4 flex space-x-4">
+                    <Link
+                      href="https://minimalistic-port.vercel.app/"
+                      passHref
+                      legacyBehavior
+                    >
+                      <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-4 py-2 web-link"
+                      >
+                        LINK
+                      </a>
+                    </Link>
+                    <Link
+                      href="https://github.com/jamiehughes5926/Minimalistic-Port"
+                      passHref
+                      legacyBehavior
+                    >
+                      <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="github-link px-4 py-2 "
+                      >
+                        GITHUB
+                      </a>
+                    </Link>
                   </div>
                 </div>
               </div>

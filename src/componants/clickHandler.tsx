@@ -60,3 +60,17 @@ export const handleProjectsClick = () => {
     behavior: "smooth",
   });
 };
+
+export const handleDesignClick = () => {
+  const screenHeight = window.innerHeight;
+  const documentHeight = document.documentElement.scrollHeight;
+
+  // Calculate the position 300vh from the bottom
+  // This value can be adjusted as needed
+  const scrollDistance = documentHeight - screenHeight * 2.8;
+
+  window.scrollTo({
+    top: Math.max(0, scrollDistance),
+    behavior: "smooth",
+  });
+};

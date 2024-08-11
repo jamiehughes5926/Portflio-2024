@@ -14,6 +14,7 @@ export const initializeAnimations = (
   slideInDivRef4: React.RefObject<HTMLDivElement>,
   imagePlaceholder1Ref: React.RefObject<HTMLDivElement>,
   imagePlaceholder2Ref: React.RefObject<HTMLDivElement>,
+  imagePlaceholder3Ref: React.RefObject<HTMLDivElement>,
   setDividerOpacity: (opacity: number) => void
 ) => {
   const tl = gsap.timeline();
@@ -125,7 +126,7 @@ export const initializeAnimations = (
           width: "140vw",
           height: "130vh",
           x: targetX,
-          y: "-15vh", // Move up by 10% of the viewport height
+          y: "-15vh",
           scaleX: 1,
           scaleY: 3,
           duration: 1,
@@ -161,7 +162,7 @@ export const initializeAnimations = (
             x: "0%",
             opacity: 1,
             duration: 1.5,
-            delay: 4, // Delay to ensure it starts after col4 rotation
+            delay: 4,
             ease: "power3.out",
           }
         )
@@ -190,7 +191,7 @@ export const initializeAnimations = (
             x: "0%",
             opacity: 1,
             duration: 1.5,
-            delay: 1, // Delay to ensure it starts after the first div slides out
+            delay: 1,
             ease: "power3.out",
             onComplete: () => {
               document.body.style.backgroundColor = "#dceaf7";
@@ -222,7 +223,7 @@ export const initializeAnimations = (
             x: "0%",
             opacity: 1,
             duration: 1.5,
-            delay: 1, // Delay to ensure it starts after the second div slides out
+            delay: 1,
             ease: "power3.out",
           }
         )
@@ -233,12 +234,12 @@ export const initializeAnimations = (
           ease: "power3.in",
         });
 
-      // Updated animation for the fourth slide-in div
+      // Updated animation for the fourth slide-in div and image placeholders
       const slideInTimeline4 = gsap.timeline({
         scrollTrigger: {
           trigger: columnsContainerRef.current,
           start: "bottom -50%",
-          end: "bottom -150%",
+          end: "bottom -250%",
           scrub: true,
         },
       });
@@ -266,6 +267,17 @@ export const initializeAnimations = (
         )
         .fromTo(
           imagePlaceholder2Ref.current,
+          { y: "100%" },
+          { y: "0%", duration: 1.5, ease: "power3.out" },
+          "-=1.5"
+        )
+        .to(
+          imagePlaceholder2Ref.current,
+          { y: "-100%", duration: 1.5, ease: "power3.in" },
+          "+=1"
+        )
+        .fromTo(
+          imagePlaceholder3Ref.current,
           { y: "100%" },
           { y: "0%", duration: 1.5, ease: "power3.out" },
           "-=1.5"

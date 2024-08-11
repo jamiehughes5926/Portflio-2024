@@ -3,6 +3,7 @@ import GalleryComponent from "@/app/Gallery";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { useLanguage } from "@/componants/languagecontext";
 import { useTranslation } from "@/componants/useTranslations";
+import Link from "next/link";
 
 const translations = {
   en: {
@@ -77,6 +78,16 @@ const JamieLLMProject = () => {
           <div>
             <h2 className="text-2xl font-bold mb-4">{t.title}</h2>
             <div className="project-info">{t.projectInfo}</div>
+            <div className="project-link flex justify-center space-x-8 mt-4">
+              <Link
+                href="https://github.com/jamiehughes5926/JamieLLM"
+                legacyBehavior
+              >
+                <a target="_blank" className="text-center">
+                  GITHUB
+                </a>
+              </Link>
+            </div>
           </div>
           <div className="w-full flex justify-center mb-[10vh]">
             <button
@@ -111,7 +122,7 @@ const JamieLLMProject = () => {
             </div>
             <div className="p-6 overflow-y-auto flex-grow">
               <img
-                src="/api/placeholder/400/300"
+                src="chat1.png"
                 alt="Jamie LLM Project"
                 className="w-full mb-4"
               />
@@ -122,6 +133,11 @@ const JamieLLMProject = () => {
               <h3 className="text-xl font-semibold mt-4 mb-2">
                 {t.technicalDetailsTitle}
               </h3>
+              <img
+                src="chat2.png"
+                alt="Jamie LLM Project"
+                className="w-full mb-4"
+              />
               <ul className="list-disc pl-5 mb-4">
                 {t.technicalDetails.map((detail, index) => (
                   <li key={index}>{detail}</li>

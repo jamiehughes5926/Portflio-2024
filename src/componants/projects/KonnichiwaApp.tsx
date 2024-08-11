@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import GalleryComponent from "@/app/Gallery";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { useLanguage } from "@/componants/languagecontext";
+import Link from "next/link";
 
 const translations = {
   en: {
@@ -100,6 +101,16 @@ const KonnichiwaAppProject = () => {
           <div>
             <h2 className="text-2xl font-bold mb-4">{t.title}</h2>
             <div className="project-info">{t.projectInfo}</div>
+            <div className="project-link flex justify-center space-x-8 mt-4">
+              <Link
+                href="https://github.com/jamiehughes5926/Konnichiwa"
+                legacyBehavior
+              >
+                <a target="_blank" className="text-center">
+                  GITHUB
+                </a>
+              </Link>
+            </div>
           </div>
           <div className="w-full flex justify-center mb-[10vh]">
             <button
